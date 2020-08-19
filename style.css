@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+body {
+    height: 80vh;
+    width: 100vw;
+    font-family: 'Bangers', cursive;
+    font-weight: 100;
+}
+
+.list {
+    height: 80vh;
+    width: 30vw;
+    background-color: #008080;
+    float: left;
+}
+
+#listOfPokemons {
+    height: 76vh;
+    overflow: auto;
+}
+
+.listElement {
+    margin: 0;
+    padding: 15px 30px;
+    list-style: none;
+    background-image: url(https://img.icons8.com/color/48/000000/pikachu-pokemon.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 28px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.infoButton {
+    margin-left: 15px;
+    border: none;
+    font-family: 'Bangers', cursive;
+    font-weight: 200;
+    font-size: large;
+    background-color: #008080;
+    opacity: 70%;
+    border: 2px solid #e7e7e7;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.infoButton:hover {
+    background-color: #e7e7e7;
+}
+
+.infoBox {
+    height: 80vh;
+    width: 70vw;
+    background-color: #2F4F4F;
+    float: left;
+}
