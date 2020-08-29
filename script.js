@@ -1,15 +1,38 @@
 const listOfPokemons = document.getElementById('listOfPokemons');
-const infoBox = document.querySelector('.infoBox');
-const displayPhoto = pokemonDetailsUrl => {
+const pokeImg = document.querySelector('.pokeImg');
+const infoList = document.getElementById('infoList');
+const firstLi = document.getElementById('firstLi');
+const secondLi = document.getElementById('secondLi');
+const thirdLi = document.getElementById('thirdLi');
+const paragraph = document.getElementById('paragraph');
+
+const displayPhotoAndInfo = (pokemonDetailsUrl) => {
     fetch(pokemonDetailsUrl)
         .then(res => res.json())
         .then(pokeInfos => {
             console.log({ pokeInfos })
             let img = document.createElement("IMG");
             img.src = pokeInfos.sprites.front_default;
-            infoBox.appendChild(img);
+            pokeImg.appendChild(img);
+            img.setAttribute("id", "image");
+            paragraph.innerText = pokeInfos.name;
+            firstLi.innerText = `HEIGHT: ${pokeInfos.height}`;
+            secondLi.innerText = `WEIGHT: ${pokeInfos.weight}`;
+            thirdLi.innerText = `BASE EXPERIENCE: ${pokeInfos.base_experience}`;
+
+            let pokeTypes = pokeInfos.types
+            for (let i = 0; i < pokeTypes.length; i++) {
+                console.log(pokeTypes[i].type.name);
+                let newListElement = document.createElement("LI");
+                newListElement.innerText = `TYPE NAME: ${pokeTypes[i].type.name}`;
+                infoList.appendChild(newListElement);
+            }
+
+
         });
 }
+
+
 window.addEventListener('load', () => {
     const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
     fetch(url)
@@ -27,10 +50,9 @@ window.addEventListener('load', () => {
                 infoButton.innerText = 'INFO';
                 listElement.appendChild(infoButton);
                 infoButton.classList.add('infoButton');
-                infoButton.addEventListener('click', () => displayPhoto(pokeresult.url))
-
+                infoButton.addEventListener('click', () => displayPhotoAndInfo(pokeresult.url));
             })
-
         })
         .catch(error => console.log(error))
+
 })
