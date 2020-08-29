@@ -1,55 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
-body {
-    height: 80vh;
-    width: 100vw;
-    font-family: 'Bangers', cursive;
-    font-weight: 100;
-}
-
-.list {
-    height: 80vh;
-    width: 30vw;
-    background-color: #008080;
-    float: left;
-}
-
-#listOfPokemons {
-    height: 76vh;
-    overflow: auto;
-}
-
-.listElement {
-    margin: 0;
-    padding: 15px 30px;
-    list-style: none;
-    background-image: url(https://img.icons8.com/color/48/000000/pikachu-pokemon.png);
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 28px;
-    font-size: 20px;
-    text-transform: uppercase;
-}
-
-.infoButton {
-    margin-left: 15px;
-    border: none;
-    font-family: 'Bangers', cursive;
-    font-weight: 200;
-    font-size: large;
-    background-color: #008080;
-    opacity: 70%;
-    border: 2px solid #e7e7e7;
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
-
-.infoButton:hover {
-    background-color: #e7e7e7;
-}
-
-.infoBox {
-    height: 80vh;
-    width: 70vw;
-    background-color: #2F4F4F;
-    float: left;
-}
+            @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+            body {
+                height: 80vh;
+                width: 100vw;
+                font-family: 'Bangers', cursive;
+                font-weight: 100;
+            }
+            
+            .list {
+                height: 550px;
+                width: 300px;
+                background-color: #008080;
+                float: left;
+            }
+            
+            #listOfPokemons {
+                height: 530px;
+                overflow: auto;
+            }
+            
+            .listElement {
+                margin: 0;
+                padding: 15px 30px;
+                list-style: none;
+                background-image: url(https://img.icons8.com/color/48/000000/pikachu-pokemon.png);
+                background-repeat: no-repeat;
+                background-position: left center;
+                background-size: 28px;
+                font-size: 20px;
+                text-transform: uppercase;
+            }
+            
+            .infoButton {
+                margin-left: 15px;
+                border: none;
+                font-family: 'Bangers', cursive;
+                font-weight: 200;
+                font-size: large;
+                background-color: #008080;
+                opacity: 70%;
+                border: 2px solid #e7e7e7;
+                transition-duration: 0.4s;
+                cursor: pointer;
+                float: right;
+            }
+            
+            .infoButton:hover {
+                background-color: #e7e7e7;
+            }
+            
+            .infoBox {
+                height: 550px;
+                width: 700px;
+                background-color: #2F4F4F;
+                float: left;
+            }
+            
+            #image {
+                width: 210px;
+                height: 240px;
+                image-rendering: crisp-edges;
+                border: 6px groove #e7e7e7;
+                margin-left: 15px;
+                margin-top: 15px;
+                background-color: #066061;
+            }
+            
+            #infoList {
+                list-style-type: none;
+                padding-right: 120px;
+                margin-right: 50px;
+            }
+            
+            .pokeImg {
+                float: left;
+            }
+            
+            .divInfoList {
+                float: left;
+                height: 240px;
+                width: 700px;
+                font-size: 30px;
+                text-align: right;
+            }
+            
+            .infoName {
+                height: 230px;
+                width: auto;
+                text-align: center;
+            }
+            
+            #paragraph {
+                margin-left: 35px;
+                padding-top: 88px;
+                font-size: 30px;
+            }
