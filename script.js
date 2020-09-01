@@ -5,6 +5,15 @@ const firstLi = document.getElementById('firstLi');
 const secondLi = document.getElementById('secondLi');
 const thirdLi = document.getElementById('thirdLi');
 const paragraph = document.getElementById('paragraph');
+const dateParagraph = document.getElementById('dateParagraph');
+
+const displayDateAndTime = () => {
+    let today = new Date();
+    let date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+    let time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    dateParagraph.innerHTML = `DATE: ${date} TIME: ${time}`;
+    setTimeout(displayDateAndTime, 1000);
+}
 
 const displayPhotoAndInfo = (pokemonDetailsUrl) => {
     fetch(pokemonDetailsUrl)
@@ -14,6 +23,12 @@ const displayPhotoAndInfo = (pokemonDetailsUrl) => {
             let img = document.createElement("IMG");
             img.src = pokeInfos.sprites.front_default;
             pokeImg.appendChild(img);
+            let triangleLeft = document.createElement("DIV");
+            pokeImg.appendChild(triangleLeft);
+            triangleLeft.id = 'triangleLeft';
+            let triangleRight = document.createElement("DIV");
+            pokeImg.appendChild(triangleRight);
+            triangleRight.id = 'triangleRight';
             img.setAttribute("id", "image");
             paragraph.innerText = pokeInfos.name;
             firstLi.innerText = `HEIGHT: ${pokeInfos.height}`;
@@ -40,7 +55,6 @@ window.addEventListener('load', () => {
         .then(pokemons => {
             console.log({ pokemons })
             let pokeResults = pokemons.results;
-            console.log(pokeResults);
             pokeResults.map(pokeresult => {
                 let listElement = document.createElement("LI");
                 listElement.innerText = pokeresult.name;
@@ -54,5 +68,5 @@ window.addEventListener('load', () => {
             })
         })
         .catch(error => console.log(error))
-
+    displayDateAndTime();
 })
