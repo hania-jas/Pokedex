@@ -60,25 +60,51 @@
                 height: 240px;
                 image-rendering: crisp-edges;
                 border: 6px groove #e7e7e7;
-                margin-left: 15px;
-                margin-top: 15px;
+                margin: 8px;
                 background-color: #066061;
+            }
+            
+            #triangleLeft {
+                width: 0;
+                height: 0;
+                border-top: 25px solid transparent;
+                border-right: 50px solid #7bd573;
+                border-bottom: 25px solid transparent;
+                display: inline-block;
+                position: absolute;
+                left: 30px;
+                bottom: 0;
+            }
+            
+            #triangleRight {
+                width: 0;
+                height: 0;
+                border-top: 25px solid transparent;
+                border-left: 50px solid #7bd573;
+                border-bottom: 25px solid transparent;
+                right: 30px;
+                bottom: 0;
+                display: inline-block;
+                position: absolute;
             }
             
             #infoList {
                 list-style-type: none;
-                padding-right: 120px;
-                margin-right: 50px;
+                padding-right: 100px;
+                margin-right: 30px;
+                margin-top: 50px;
             }
             
             .pokeImg {
                 float: left;
+                height: 320px;
+                position: relative;
             }
             
             .divInfoList {
-                float: left;
-                height: 240px;
-                width: 700px;
+                float: right;
+                height: auto;
+                width: auto;
                 font-size: 30px;
                 text-align: right;
             }
@@ -86,11 +112,22 @@
             .infoName {
                 height: 230px;
                 width: auto;
-                text-align: center;
             }
             
             #paragraph {
                 margin-left: 35px;
-                padding-top: 88px;
+                padding-left: 60px;
+                padding-top: 60px;
                 font-size: 30px;
+                float: right;
+                margin-right: 130px;
+            }
+            
+            #dateParagraph {
+                top: 520px;
+                left: 820px;
+                position: fixed;
+                width: 190px;
+                height: 40px;
+                color: #7bd573;
             }
