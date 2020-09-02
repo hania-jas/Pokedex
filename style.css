@@ -13,7 +13,7 @@
                 float: left;
             }
             
-            #listOfPokemons {
+            .listOfPokemons {
                 height: 530px;
                 overflow: auto;
             }
@@ -55,7 +55,7 @@
                 float: left;
             }
             
-            #image {
+            .image {
                 width: 210px;
                 height: 240px;
                 image-rendering: crisp-edges;
@@ -64,7 +64,7 @@
                 background-color: #066061;
             }
             
-            #triangleLeft {
+            .triangleLeft {
                 width: 0;
                 height: 0;
                 border-top: 25px solid transparent;
@@ -76,7 +76,7 @@
                 bottom: 0;
             }
             
-            #triangleRight {
+            .triangleRight {
                 width: 0;
                 height: 0;
                 border-top: 25px solid transparent;
@@ -88,7 +88,7 @@
                 position: absolute;
             }
             
-            #infoList {
+            .infoList {
                 list-style-type: none;
                 padding-right: 100px;
                 margin-right: 30px;
@@ -115,7 +115,7 @@
                 ;
             }
             
-            #paragraph {
+            .pokeNameParagraph {
                 margin-left: 35px;
                 padding-left: 60px;
                 padding-top: 60px;
@@ -124,7 +124,7 @@
                 margin-right: 130px;
             }
             
-            #dateParagraph {
+            .displayDateAndTimeParagraph {
                 top: 520px;
                 left: 820px;
                 position: fixed;
