@@ -16,6 +16,21 @@ clearPokemonInfoScreen = () => {
     pokeImg.innerHTML = '';
     pokeNameParagraph.innerText = '';
 }
+const displayNextPokemon = id => {
+    if (id < 151) {
+        id++;
+        let url = 'https://pokeapi.co/api/v2/pokemon/' + id;
+        displayPhotoAndInfo(url);
+    }
+
+}
+const displayPreviousPokemon = id => {
+    if (id > 1) {
+        id--;
+        let url = 'https://pokeapi.co/api/v2/pokemon/' + id;
+        displayPhotoAndInfo(url);
+    }
+}
 
 const displayPhotoAndInfo = (pokemonDetailsUrl) => {
     fetch(pokemonDetailsUrl)
@@ -31,10 +46,13 @@ const displayPhotoAndInfo = (pokemonDetailsUrl) => {
             const triangleRight = createNavigationButton('triangleRight');
             pokeImg.appendChild(triangleLeft);
             pokeImg.appendChild(triangleRight);
+            triangleRight.addEventListener('click', () => displayNextPokemon(pokeInfos.id));
+            triangleLeft.addEventListener('click', () => displayPreviousPokemon(pokeInfos.id));
 
             pokeNameParagraph.innerText = pokeInfos.name;
             const pokemonInfoComponent = createPokemonInfo(pokeInfos);
             infoList.appendChild(pokemonInfoComponent);
+
 
         });
 }
@@ -49,6 +67,7 @@ window.addEventListener('load', () => {
             pokeResults.map(pokeresult => {
                 const pokemonListItem = createPokemonListItem(pokeresult.name, pokeresult.url);
                 listOfPokemons.appendChild(pokemonListItem);
+
             })
         })
         .catch(error => console.log(error))
