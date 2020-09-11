@@ -3,6 +3,7 @@ const pokeImg = document.querySelector('.pokeImg');
 const infoList = document.querySelector('.infoList');
 const pokeNameParagraph = document.querySelector('.pokeNameParagraph');
 const displayDateAndTimeParagraph = document.querySelector('.displayDateAndTimeParagraph');
+const input = document.querySelector('.input');
 
 const displayDateAndTime = () => {
     let today = new Date();
@@ -56,6 +57,19 @@ const displayPhotoAndInfo = (pokemonDetailsUrl) => {
 
         });
 }
+const searchPokemon = () => {
+    let inputValue = input.value.toUpperCase();
+    const listElement = listOfPokemons.getElementsByClassName('listElement');
+    for (let i = 0; i < listElement.length; i++) {
+        let textValue = listElement[i].innerText;
+        if (textValue.indexOf(inputValue) > -1) {
+            listElement[i].style.display = '';
+        } else {
+            listElement[i].style.display = 'none';
+        }
+    }
+}
+
 
 
 window.addEventListener('load', () => {
@@ -69,7 +83,9 @@ window.addEventListener('load', () => {
                 listOfPokemons.appendChild(pokemonListItem);
 
             })
+
         })
-        .catch(error => console.log(error))
+        .catch(error => console.log(error));
     displayDateAndTime();
+    document.addEventListener('keydown', searchPokemon);
 })
