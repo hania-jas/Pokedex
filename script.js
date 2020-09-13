@@ -5,6 +5,8 @@ const pokeNameParagraph = document.querySelector('.pokeNameParagraph');
 const displayDateAndTimeParagraph = document.querySelector('.displayDateAndTimeParagraph');
 const input = document.querySelector('.input');
 
+let pokemonList = [];
+
 const displayDateAndTime = () => {
     let today = new Date();
     let date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
@@ -53,39 +55,37 @@ const displayPhotoAndInfo = (pokemonDetailsUrl) => {
             pokeNameParagraph.innerText = pokeInfos.name;
             const pokemonInfoComponent = createPokemonInfo(pokeInfos);
             infoList.appendChild(pokemonInfoComponent);
-
-
         });
 }
 const searchPokemon = () => {
-    let inputValue = input.value.toUpperCase();
-    const listElement = listOfPokemons.getElementsByClassName('listElement');
-    for (let i = 0; i < listElement.length; i++) {
-        let textValue = listElement[i].innerText;
-        if (textValue.indexOf(inputValue) > -1) {
-            listElement[i].style.display = '';
-        } else {
-            listElement[i].style.display = 'none';
-        }
-    }
+    let inputValue = input.value;
+    displayListOfPokemons(pokemonList, inputValue);
 }
 
+const displayListOfPokemons = (pokemonList, filteringText = '') => {
+    listOfPokemons.innerHTML = '';
+    pokemonList.forEach(pokeItem => {
+        const pokeNameInUpperCase = pokeItem.name.toUpperCase();
+        const filteringTextInUpperCase = filteringText.toUpperCase();
 
+        if (pokeNameInUpperCase.indexOf(filteringTextInUpperCase) > -1 || filteringText === '') {
+            const pokemonListItem = createPokemonListItem(pokeItem.name, pokeItem.url);
+            listOfPokemons.appendChild(pokemonListItem);
+        }
+    })
+}
 
 window.addEventListener('load', () => {
     const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
     fetch(url)
         .then(response => response.json())
         .then(pokemons => {
-            let pokeResults = pokemons.results;
-            pokeResults.map(pokeresult => {
-                const pokemonListItem = createPokemonListItem(pokeresult.name, pokeresult.url);
-                listOfPokemons.appendChild(pokemonListItem);
-
-            })
-
+            pokemonList = pokemons.results;
+            displayListOfPokemons(pokemonList);
         })
         .catch(error => console.log(error));
+
     displayDateAndTime();
-    document.addEventListener('keydown', searchPokemon);
+
+    document.addEventListener('keyup', searchPokemon);
 })
