@@ -19,6 +19,7 @@ const createNavigationButton = buttonClass => {
 
 const createPokemonTypeInfo = typeName => {
     let typeNameElement = document.createElement("LI");
+    typeNameElement.classList.add('infoLiItem');
     typeNameElement.innerText = `TYPE NAME: ${typeName}`;
     return typeNameElement;
 }
@@ -27,8 +28,11 @@ const createPokemonInfo = pokeInfos => {
     let container = document.createElement("DIV");
 
     let pokemonHeight = document.createElement("LI");
+    pokemonHeight.classList.add('infoLiItem');
     let pokemonWeight = document.createElement("LI");
+    pokemonWeight.classList.add('infoLiItem');
     let pokemonBaseExperience = document.createElement("LI");
+    pokemonBaseExperience.classList.add('infoLiItem')
 
     pokemonHeight.innerText = `HEIGHT: ${pokeInfos.height}`;
     pokemonWeight.innerText = `WEIGHT: ${pokeInfos.weight}`;
