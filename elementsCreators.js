@@ -5,6 +5,12 @@ const createPokemonImage = src => {
     return pokeImage;
 }
 
+const createShapes = (element, className) => {
+    let shape = document.createElement(element);
+    shape.classList.add(className);
+    return shape;
+}
+
 const createNavigationButton = buttonClass => {
     let triangle = document.createElement("LI");
     triangle.classList.add(buttonClass);
