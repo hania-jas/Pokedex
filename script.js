@@ -61,6 +61,10 @@ const displayPhotoAndInfo = (pokemonDetailsUrl) => {
             const triangleRight = createNavigationButton('triangleRight');
             pokeImg.appendChild(triangleLeft);
             pokeImg.appendChild(triangleRight);
+            const leftTriangleBackground = createShapes("DIV", 'leftTriangleBackground');
+            const rightTriangleBackground = createShapes("DIV", 'rightTriangleBackground');
+            pokeImg.appendChild(leftTriangleBackground);
+            pokeImg.appendChild(rightTriangleBackground);
             triangleRight.addEventListener('click', () => displayNextPokemon(pokeInfos.id));
             triangleLeft.addEventListener('click', () => displayPreviousPokemon(pokeInfos.id));
 
