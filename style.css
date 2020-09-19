@@ -410,22 +410,15 @@
                     border: 1px solid black;
                 }
                 
-                .dividerPartOne {
+                .darkDivider {
                     background: linear-gradient(to right, #790808, #bf0c0c, #790808);
                     height: 50px;
                     width: auto;
                     box-shadow: inset 1px 1px 4px -1px rgba(0, 0, 0, 0.76);
                 }
                 
-                .dividerPartTwo {
+                .lightDivider {
                     background: linear-gradient(to right, #920101, #bf0c0c, #920101);
-                    height: 50px;
-                    width: auto;
-                    box-shadow: inset 1px 1px 4px -1px rgba(0, 0, 0, 0.76);
-                }
-                
-                .dividerPartThree {
-                    background: linear-gradient(to right, #790808, #bf0c0c, #790808);
                     height: 50px;
                     width: auto;
                     box-shadow: inset 1px 1px 4px -1px rgba(0, 0, 0, 0.76);
@@ -434,20 +427,6 @@
                 .dividerPartFour {
                     background: linear-gradient(to right, #920101, #bf0c0c, #920101);
                     height: 299px;
-                    width: auto;
-                    box-shadow: inset 1px 1px 4px -1px rgba(0, 0, 0, 0.76);
-                }
-                
-                .dividerPartFive {
-                    background: linear-gradient(to right, #790808, #bf0c0c, #790808);
-                    height: 50px;
-                    width: auto;
-                    box-shadow: inset 1px 1px 4px -1px rgba(0, 0, 0, 0.76);
-                }
-                
-                .dividerPartSix {
-                    background: linear-gradient(to right, #920101, #bf0c0c, #920101);
-                    height: 50px;
                     width: auto;
                     box-shadow: inset 1px 1px 4px -1px rgba(0, 0, 0, 0.76);
                 }
