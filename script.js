@@ -44,6 +44,18 @@ const displayPhotoAndInfo = (pokemonDetailsUrl) => {
             const pokemonImageSrc = pokeInfos.sprites.front_default;
             const pokemonImage = createPokemonImage(pokemonImageSrc);
             pokeImg.appendChild(pokemonImage);
+            const pokeImgBackground = createShapes("DIV", 'pokeImgBackground');
+            const leftCorner = createShapes("DIV", 'leftCorner');
+            const pokeImgWhiteBackground = createShapes("DIV", 'pokeImgWhiteBackground');
+            pokeImg.appendChild(pokeImgBackground);
+            pokeImg.appendChild(leftCorner);
+            pokeImgBackground.appendChild(pokeImgWhiteBackground);
+            const backroundImageBigCircle = createShapes("DIV", 'backroundImageBigCircle');
+            pokeImgBackground.appendChild(backroundImageBigCircle);
+            const leftBackgroundStripes = createShapes("DIV", 'leftBackgroundStripes');
+            const rightBackgroundStripes = createShapes("DIV", 'rightBackgroundStripes')
+            pokeImgBackground.appendChild(leftBackgroundStripes);
+            pokeImgBackground.appendChild(rightBackgroundStripes);
 
             const triangleLeft = createNavigationButton('triangleLeft');
             const triangleRight = createNavigationButton('triangleRight');
