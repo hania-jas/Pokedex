@@ -69,6 +69,8 @@ const displayPhotoAndInfo = (pokemonDetailsUrl) => {
             triangleLeft.addEventListener('click', () => displayPreviousPokemon(pokeInfos.id));
 
             pokeNameParagraph.innerText = pokeInfos.name;
+            pokeNameParagraph.style.background = 'linear-gradient(to top, #4ac329, #62e637, #22ac07)';
+            pokeNameParagraph.style.border = '4px ridge #209f07';
             const pokemonInfoComponent = createPokemonInfo(pokeInfos);
             infoList.appendChild(pokemonInfoComponent);
         });
