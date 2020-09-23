@@ -42,8 +42,10 @@ const displayScreenWithPokePhoto = () => {
     pokeImg.appendChild(pokeImgBackground);
     pokeImg.appendChild(leftCorner);
     pokeImgBackground.appendChild(pokeImgWhiteBackground);
+
     const backroundImageBigCircle = createShapes("DIV", 'backroundImageBigCircle');
     pokeImgBackground.appendChild(backroundImageBigCircle);
+
     const leftBackgroundStripes = createShapes("DIV", 'leftBackgroundStripes');
     const rightBackgroundStripes = createShapes("DIV", 'rightBackgroundStripes')
     pokeImgBackground.appendChild(leftBackgroundStripes);
@@ -55,10 +57,12 @@ const displayNavigationButtons = pokeinfosId => {
     const triangleRight = createNavigationButton('triangleRight');
     pokeImg.appendChild(triangleLeft);
     pokeImg.appendChild(triangleRight);
+
     const leftTriangleBackground = createShapes("DIV", 'leftTriangleBackground');
     const rightTriangleBackground = createShapes("DIV", 'rightTriangleBackground');
     pokeImg.appendChild(leftTriangleBackground);
     pokeImg.appendChild(rightTriangleBackground);
+
     triangleRight.addEventListener('click', () => displayNextPokemon(pokeinfosId));
     triangleLeft.addEventListener('click', () => displayPreviousPokemon(pokeinfosId));
 }
