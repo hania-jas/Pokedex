@@ -35,6 +35,34 @@ const displayPreviousPokemon = id => {
     }
 }
 
+const displayScreenWithPokePhoto = () => {
+    const pokeImgBackground = createShapes("DIV", 'pokeImgBackground');
+    const leftCorner = createShapes("DIV", 'leftCorner');
+    const pokeImgWhiteBackground = createShapes("DIV", 'pokeImgWhiteBackground');
+    pokeImg.appendChild(pokeImgBackground);
+    pokeImg.appendChild(leftCorner);
+    pokeImgBackground.appendChild(pokeImgWhiteBackground);
+    const backroundImageBigCircle = createShapes("DIV", 'backroundImageBigCircle');
+    pokeImgBackground.appendChild(backroundImageBigCircle);
+    const leftBackgroundStripes = createShapes("DIV", 'leftBackgroundStripes');
+    const rightBackgroundStripes = createShapes("DIV", 'rightBackgroundStripes')
+    pokeImgBackground.appendChild(leftBackgroundStripes);
+    pokeImgBackground.appendChild(rightBackgroundStripes);
+}
+
+const displayNavigationButtons = pokeinfosId => {
+    const triangleLeft = createNavigationButton('triangleLeft');
+    const triangleRight = createNavigationButton('triangleRight');
+    pokeImg.appendChild(triangleLeft);
+    pokeImg.appendChild(triangleRight);
+    const leftTriangleBackground = createShapes("DIV", 'leftTriangleBackground');
+    const rightTriangleBackground = createShapes("DIV", 'rightTriangleBackground');
+    pokeImg.appendChild(leftTriangleBackground);
+    pokeImg.appendChild(rightTriangleBackground);
+    triangleRight.addEventListener('click', () => displayNextPokemon(pokeinfosId));
+    triangleLeft.addEventListener('click', () => displayPreviousPokemon(pokeinfosId));
+}
+
 const displayPhotoAndInfo = (pokemonDetailsUrl) => {
     fetch(pokemonDetailsUrl)
         .then(res => res.json())
@@ -44,39 +72,18 @@ const displayPhotoAndInfo = (pokemonDetailsUrl) => {
             const pokemonImageSrc = pokeInfos.sprites.front_default;
             const pokemonImage = createPokemonImage(pokemonImageSrc);
             pokeImg.appendChild(pokemonImage);
-            const pokeImgBackground = createShapes("DIV", 'pokeImgBackground');
-            const leftCorner = createShapes("DIV", 'leftCorner');
-            const pokeImgWhiteBackground = createShapes("DIV", 'pokeImgWhiteBackground');
-            pokeImg.appendChild(pokeImgBackground);
-            pokeImg.appendChild(leftCorner);
-            pokeImgBackground.appendChild(pokeImgWhiteBackground);
-            const backroundImageBigCircle = createShapes("DIV", 'backroundImageBigCircle');
-            pokeImgBackground.appendChild(backroundImageBigCircle);
-            const leftBackgroundStripes = createShapes("DIV", 'leftBackgroundStripes');
-            const rightBackgroundStripes = createShapes("DIV", 'rightBackgroundStripes')
-            pokeImgBackground.appendChild(leftBackgroundStripes);
-            pokeImgBackground.appendChild(rightBackgroundStripes);
 
-            const triangleLeft = createNavigationButton('triangleLeft');
-            const triangleRight = createNavigationButton('triangleRight');
-            pokeImg.appendChild(triangleLeft);
-            pokeImg.appendChild(triangleRight);
-            const leftTriangleBackground = createShapes("DIV", 'leftTriangleBackground');
-            const rightTriangleBackground = createShapes("DIV", 'rightTriangleBackground');
-            pokeImg.appendChild(leftTriangleBackground);
-            pokeImg.appendChild(rightTriangleBackground);
-            triangleRight.addEventListener('click', () => displayNextPokemon(pokeInfos.id));
-            triangleLeft.addEventListener('click', () => displayPreviousPokemon(pokeInfos.id));
+            displayScreenWithPokePhoto();
+            displayNavigationButtons(pokeInfos.id);
 
             pokeNameParagraph.innerText = pokeInfos.name;
-            pokeNameParagraph.style.background = 'linear-gradient(to top, #4ac329, #62e637, #22ac07)';
-            pokeNameParagraph.style.border = '4px ridge #209f07';
+            pokeNameParagraph.classList.add('screenPokeNameStyling');
             const pokemonInfoComponent = createPokemonInfo(pokeInfos);
             infoList.appendChild(pokemonInfoComponent);
         });
 }
 const searchPokemon = () => {
-    let inputValue = input.value;
+    const inputValue = input.value;
     displayListOfPokemons(pokemonList, inputValue);
 }
 
