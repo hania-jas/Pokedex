@@ -3,6 +3,9 @@ const pokeImg = document.querySelector('.pokeImg');
 const infoList = document.querySelector('.infoList');
 const pokeNameParagraph = document.querySelector('.pokeNameParagraph');
 const displayDateAndTimeParagraph = document.querySelector('.displayDateAndTimeParagraph');
+const input = document.querySelector('.input');
+
+let pokemonList = [];
 
 const displayDateAndTime = () => {
     let today = new Date();
@@ -32,6 +35,38 @@ const displayPreviousPokemon = id => {
     }
 }
 
+const displayScreenWithPokePhoto = () => {
+    const pokeImgBackground = createShapes("DIV", 'pokeImgBackground');
+    const leftCorner = createShapes("DIV", 'leftCorner');
+    const pokeImgWhiteBackground = createShapes("DIV", 'pokeImgWhiteBackground');
+    pokeImg.appendChild(pokeImgBackground);
+    pokeImg.appendChild(leftCorner);
+    pokeImgBackground.appendChild(pokeImgWhiteBackground);
+
+    const backroundImageBigCircle = createShapes("DIV", 'backroundImageBigCircle');
+    pokeImgBackground.appendChild(backroundImageBigCircle);
+
+    const leftBackgroundStripes = createShapes("DIV", 'leftBackgroundStripes');
+    const rightBackgroundStripes = createShapes("DIV", 'rightBackgroundStripes')
+    pokeImgBackground.appendChild(leftBackgroundStripes);
+    pokeImgBackground.appendChild(rightBackgroundStripes);
+}
+
+const displayNavigationButtons = pokeinfosId => {
+    const triangleLeft = createNavigationButton('triangleLeft');
+    const triangleRight = createNavigationButton('triangleRight');
+    pokeImg.appendChild(triangleLeft);
+    pokeImg.appendChild(triangleRight);
+
+    const leftTriangleBackground = createShapes("DIV", 'leftTriangleBackground');
+    const rightTriangleBackground = createShapes("DIV", 'rightTriangleBackground');
+    pokeImg.appendChild(leftTriangleBackground);
+    pokeImg.appendChild(rightTriangleBackground);
+
+    triangleRight.addEventListener('click', () => displayNextPokemon(pokeinfosId));
+    triangleLeft.addEventListener('click', () => displayPreviousPokemon(pokeinfosId));
+}
+
 const displayPhotoAndInfo = (pokemonDetailsUrl) => {
     fetch(pokemonDetailsUrl)
         .then(res => res.json())
@@ -42,34 +77,44 @@ const displayPhotoAndInfo = (pokemonDetailsUrl) => {
             const pokemonImage = createPokemonImage(pokemonImageSrc);
             pokeImg.appendChild(pokemonImage);
 
-            const triangleLeft = createNavigationButton('triangleLeft');
-            const triangleRight = createNavigationButton('triangleRight');
-            pokeImg.appendChild(triangleLeft);
-            pokeImg.appendChild(triangleRight);
-            triangleRight.addEventListener('click', () => displayNextPokemon(pokeInfos.id));
-            triangleLeft.addEventListener('click', () => displayPreviousPokemon(pokeInfos.id));
+            displayScreenWithPokePhoto();
+            displayNavigationButtons(pokeInfos.id);
 
             pokeNameParagraph.innerText = pokeInfos.name;
+            pokeNameParagraph.classList.add('screenPokeNameStyling');
             const pokemonInfoComponent = createPokemonInfo(pokeInfos);
             infoList.appendChild(pokemonInfoComponent);
-
-
         });
 }
+const searchPokemon = () => {
+    const inputValue = input.value;
+    displayListOfPokemons(pokemonList, inputValue);
+}
 
+const displayListOfPokemons = (pokemonList, filteringText = '') => {
+    listOfPokemons.innerHTML = '';
+    pokemonList.forEach(pokeItem => {
+        const pokeNameInUpperCase = pokeItem.name.toUpperCase();
+        const filteringTextInUpperCase = filteringText.toUpperCase();
+
+        if (pokeNameInUpperCase.indexOf(filteringTextInUpperCase) > -1 || filteringText === '') {
+            const pokemonListItem = createPokemonListItem(pokeItem.name, pokeItem.url);
+            listOfPokemons.appendChild(pokemonListItem);
+        }
+    })
+}
 
 window.addEventListener('load', () => {
     const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
     fetch(url)
         .then(response => response.json())
         .then(pokemons => {
-            let pokeResults = pokemons.results;
-            pokeResults.map(pokeresult => {
-                const pokemonListItem = createPokemonListItem(pokeresult.name, pokeresult.url);
-                listOfPokemons.appendChild(pokemonListItem);
-
-            })
+            pokemonList = pokemons.results;
+            displayListOfPokemons(pokemonList);
         })
-        .catch(error => console.log(error))
+        .catch(error => console.log(error));
+
     displayDateAndTime();
+
+    document.addEventListener('keyup', searchPokemon);
 })
