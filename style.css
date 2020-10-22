@@ -16,7 +16,7 @@ body {
 
 .shadow {
     z-index: -1;
-    position: fixed;
+    position: absolute;
     top: 475px;
     width: 1050px;
     height: 100px;
@@ -91,7 +91,8 @@ body {
     margin: auto;
     display: block;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+    z-index: 1;
 }
 
 .triangleLeft {
@@ -105,6 +106,7 @@ body {
     left: 60px;
     bottom: 0;
     top: 270px;
+    z-index: 1;
 }
 
 .triangleRight {
@@ -118,6 +120,7 @@ body {
     top: 270px;
     display: inline-block;
     position: absolute;
+    z-index: 1;
 }
 
 .leftTriangleBackground {
@@ -125,7 +128,7 @@ body {
     height: 50px;
     background: #fdc224;
     border-radius: 50%;
-    z-index: -1;
+    z-index: 0;
     position: relative;
     bottom: 240px;
     left: 54px;
@@ -138,7 +141,7 @@ body {
     height: 50px;
     background: #fdc224;
     border-radius: 50%;
-    z-index: -1;
+    z-index: 0;
     position: relative;
     bottom: 292px;
     left: 195px;
@@ -156,7 +159,7 @@ body {
 .pokeImg {
     height: 260px;
     width: 300px;
-    position: fixed;
+    position: absolute;
     top: 100px;
 }
 
@@ -166,7 +169,7 @@ body {
     background-color: #b1b1b1;
     margin-left: 10px;
     border-radius: 20px;
-    z-index: -1;
+    z-index: 0;
     position: relative;
     bottom: 230px;
 }
@@ -270,8 +273,8 @@ body {
 
 .displayDateAndTimeParagraph {
     top: 520px;
-    left: 820px;
-    position: fixed;
+    left: 800px;
+    position: absolute;
     width: 260px;
     height: 40px;
     color: #600606;
@@ -337,7 +340,7 @@ input::placeholder {
     height: 58px;
     width: 168px;
     background-color: #8b0000;
-    position: fixed;
+    position: absolute;
     left: 140px;
 }
 
@@ -375,7 +378,7 @@ input::placeholder {
     width: 156px;
     height: 40px;
     background-color: #c10c0c;
-    position: fixed;
+    position: absolute;
     top: 50px;
     left: 152px;
     border-top-left-radius: 39%;
@@ -383,7 +386,7 @@ input::placeholder {
 
 .pokedexBorderFour {
     display: inline-block;
-    position: fixed;
+    position: absolute;
     left: 848px;
     width: 211px;
     height: 90px;
@@ -396,7 +399,7 @@ input::placeholder {
     height: 64px;
     width: 540px;
     background-color: white;
-    position: fixed;
+    position: absolute;
 }
 
 .pokedexBorderSix {
@@ -406,7 +409,7 @@ input::placeholder {
     border-top-right-radius: 50%;
     top: 51px;
     display: inline-block;
-    position: fixed;
+    position: absolute;
 }
 
 .divider {
