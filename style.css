@@ -16,6 +16,10 @@
     margin-top: 0;
 }
 
+.listOfPokemons::-webkit-scrollbar {
+    display: none;
+}
+
 .listElement {
     margin: 0;
     padding: 15px 30px;
@@ -570,7 +574,7 @@ input::placeholder {
 }
 
 @media (min-width: 979px),
-(max-width: 600px) {
+{
     .pokeImgBackground {
         height: 240px;
         max-width: 290px;
@@ -947,3 +951,27 @@ input::placeholder {
         font-weight: 600;
     }
 }
+
+
+/* @media (min-width: 1173px) {
+    .list {
+        margin-left: 8px;
+        height: 550px;
+        width: 323px;
+        background-color: #c10c0c;
+        float: left;
+        border-top-left-radius: 65px;
+        border-bottom-left-radius: 45px;
+        box-shadow: -14px 12px 0px 5px #600606;
+    }
+    .infoBox {
+        height: 550px;
+        width: 717px;
+        min-width: 25%;
+        background-color: #c10c0c;
+        float: left;
+        border-bottom-right-radius: 45px;
+        font-family: 'Grandstander', cursive;
+        border-bottom: 18px solid #600606;
+    }
+} */
