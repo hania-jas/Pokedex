@@ -115,7 +115,7 @@ input::placeholder {
         box-shadow: -14px 12px 0px 5px #600606;
     }
     .infoBox {
-        height: 1000px;
+        height: 800px;
         width: 100%;
         background-color: #c10c0c;
         border-bottom-right-radius: 45px;
@@ -189,7 +189,7 @@ input::placeholder {
         border-radius: 20px;
     }
     .displayDateAndTimeParagraph {
-        top: 320px;
+        top: 13%;
         position: relative;
         width: 260px;
         left: 30%;
