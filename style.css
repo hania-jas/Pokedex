@@ -162,6 +162,16 @@ input::placeholder {
         font-size: 23px;
         text-align: right;
     }
+    .pokeImgBackground {
+        height: 240px;
+        width: 290px;
+        background-color: #b1b1b1;
+        margin-left: 10px;
+        border-radius: 20px;
+        z-index: 0;
+        position: relative;
+        bottom: 230px;
+    }
     .pokeImgWhiteBackground {
         height: 180px;
         width: 230px;
@@ -172,6 +182,95 @@ input::placeholder {
         top: 20px;
         border-radius: 20px;
         border: 3px solid #484848;
+    }
+    .backroundImageBigCircle {
+        width: 25px;
+        height: 25px;
+        background: #9e0303;
+        border-radius: 50%;
+        z-index: 1;
+        margin-left: 60px;
+        margin-top: 24px;
+        border: 1px solid #650606;
+    }
+    .leftBackgroundStripes {
+        width: 30px;
+        height: 27px;
+        margin-left: 60px;
+        position: relative;
+        bottom: 27px;
+        left: 146px;
+        background-image: linear-gradient(0deg, #b1b1b1 21.43%, #484848 21.43%, #484848 50%, #b1b1b1 50%, #b1b1b1 71.43%, #484848 71.43%, #484848 100%);
+        background-size: 20px 20px;
+    }
+    .rightBackgroundStripes {
+        width: 30px;
+        height: 27px;
+        margin-left: 60px;
+        position: relative;
+        bottom: 54px;
+        left: 105px;
+        background-image: linear-gradient(0deg, #b1b1b1 21.43%, #484848 21.43%, #484848 50%, #b1b1b1 50%, #b1b1b1 71.43%, #484848 71.43%, #484848 100%);
+        background-size: 20px 20px;
+    }
+    .leftCorner {
+        width: 0;
+        height: 0;
+        border-top: 30px solid #b1b1b1;
+        border-left: 30px solid #c10c0c;
+        position: relative;
+        bottom: 260px;
+        margin-left: 10px;
+    }
+    .triangleLeft {
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-right: 30px solid #790808;
+        border-bottom: 15px solid transparent;
+        display: inline-block;
+        position: absolute;
+        left: 60px;
+        bottom: 0;
+        top: 270px;
+        z-index: 1;
+    }
+    .triangleRight {
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-left: 30px solid #790808;
+        border-bottom: 15px solid transparent;
+        right: 60px;
+        bottom: 0;
+        top: 270px;
+        display: inline-block;
+        position: absolute;
+        z-index: 1;
+    }
+    .leftTriangleBackground {
+        width: 50px;
+        height: 50px;
+        background: #fdc224;
+        border-radius: 50%;
+        z-index: 0;
+        position: relative;
+        bottom: 240px;
+        left: 54px;
+        border-left: 2px solid #790808;
+        border-bottom: 2px solid #790808;
+    }
+    .rightTriangleBackground {
+        width: 50px;
+        height: 50px;
+        background: #fdc224;
+        border-radius: 50%;
+        z-index: 0;
+        position: relative;
+        bottom: 292px;
+        left: 195px;
+        border-right: 2px solid #790808;
+        border-bottom: 2px solid #790808;
     }
     .infoName {
         height: 120px;
@@ -407,17 +506,6 @@ input::placeholder {
         left: 50%;
         top: 40px;
     }
-    .pokeImgWhiteBackground {
-        height: 180px;
-        max-width: 230px;
-        z-index: 0;
-        background-color: #ffffff;
-        position: relative;
-        margin: 0 auto;
-        top: 20px;
-        border-radius: 20px;
-        border: 3px solid #484848;
-    }
     .infoName {
         height: 120px;
         width: 100%;
@@ -571,10 +659,6 @@ input::placeholder {
         width: auto;
         box-shadow: inset 1px 1px 4px -1px rgba(0, 0, 0, 0.76);
     }
-}
-
-@media (min-width: 979px),
-{
     .pokeImgBackground {
         height: 240px;
         max-width: 290px;
@@ -952,12 +1036,74 @@ input::placeholder {
     }
 }
 
-
-/* @media (min-width: 1173px) {
+@media (min-width: 1156px) {
+    .shadow {
+        z-index: -1;
+        position: absolute;
+        top: 475px;
+        width: 1076px;
+        height: 100px;
+        border-bottom-right-radius: 50px;
+        border-bottom-left-radius: 50px;
+        background-color: #600606;
+    }
+    .pokedexBorderTwo {
+        display: inline-block;
+        height: 58px;
+        width: 196.5px;
+        background-color: #8b0000;
+        position: absolute;
+        left: 140px;
+    }
+    .pokedexBorderThree {
+        display: inline-block;
+        width: 173.4px;
+        height: 40px;
+        background-color: #c10c0c;
+        position: absolute;
+        z-index: 0;
+        top: 50px;
+        left: 171px;
+        border-top-left-radius: 43%;
+    }
+    .pokedexBorderFour {
+        display: inline-block;
+        position: absolute;
+        left: 932.4px;
+        width: 226.45px;
+        height: 90px;
+        background-color: white;
+        border-bottom-left-radius: 61px;
+        z-index: 1;
+    }
+    .pokedexBorderFive {
+        display: inline-block;
+        height: 64px;
+        width: 578px;
+        background-color: white;
+        position: absolute;
+    }
+    .pokedexBorderSix {
+        height: 42px;
+        width: 546px;
+        background-color: #c10c0c;
+        border-top-right-radius: 50%;
+        top: 51px;
+        display: inline-block;
+        position: absolute;
+    }
+    .divider {
+        float: left;
+        height: 550px;
+        width: 57px;
+        background-color: #8b0000;
+        border: 1px solid black;
+        position: relative;
+    }
     .list {
         margin-left: 8px;
         height: 550px;
-        width: 323px;
+        width: 321px;
         background-color: #c10c0c;
         float: left;
         border-top-left-radius: 65px;
@@ -974,4 +1120,4 @@ input::placeholder {
         font-family: 'Grandstander', cursive;
         border-bottom: 18px solid #600606;
     }
-} */
+}
