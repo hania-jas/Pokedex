@@ -478,6 +478,10 @@ input::placeholder {
     top: 5px;
 }
 
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+
 @media (max-width: 600px) {
     body {
         width: 97%;
